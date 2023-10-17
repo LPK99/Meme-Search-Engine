@@ -12,6 +12,7 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 model, preprocess = clip.load("ViT-B/32", device=device)
 images = []
 ImageFile.LOAD_TRUNCATED_IMAGES = True
+
 @st.cache_resource
 def retrieve_embeddings():
   if os.path.exists("index.bin"):
